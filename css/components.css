@@ -1,0 +1,790 @@
+/* =============================================
+   GATO NEGRO — Componentes (Bento)
+   Cards, grillas, filtros, formularios, stats.
+   Todo el sistema de componentes rediseñado
+   con la estética Bento Grid.
+============================================= */
+
+/* =============================================
+   POST CARD — Tarjeta Bento
+============================================= */
+
+.post-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition:
+    background var(--transition),
+    border-color var(--transition),
+    transform var(--transition),
+    box-shadow var(--transition);
+}
+
+.post-card:hover {
+  background: var(--surface-2);
+  border-color: var(--border-md);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* Imagen */
+.post-card__img-wrap {
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.post-card__img-wrap::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 30%, rgba(20, 20, 23, 0.8) 100%);
+  pointer-events: none;
+}
+
+.post-card__img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  filter: grayscale(20%) brightness(0.9);
+  transition: filter var(--transition), transform var(--transition-slow);
+}
+
+.post-card:hover .post-card__img {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.04);
+}
+
+/* Cuerpo */
+.post-card__body {
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--space-3);
+}
+
+/* Metadata */
+.post-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.post-card__cat {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-medium);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-dim);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-gold);
+  white-space: nowrap;
+}
+
+.post-card__date {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+}
+
+.post-card__read-time {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+  margin-left: auto;
+}
+
+/* Titulo */
+.post-card__title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: var(--font-bold);
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  transition: color var(--transition);
+}
+
+.post-card:hover .post-card__title {
+  color: var(--gold);
+}
+
+/* Excerpt */
+.post-card__excerpt {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.65;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  flex: 1;
+}
+
+/* CTA row */
+.post-card__read {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: 0.04em;
+  color: var(--text-dim);
+  transition: color var(--transition), gap var(--transition);
+  margin-top: auto;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+
+.post-card:hover .post-card__read {
+  color: var(--gold);
+  gap: var(--space-3);
+}
+
+/* =============================================
+   POST CARD FEATURED — Layout horizontal Bento
+   Ocupa todo el ancho, imagen izquierda
+============================================= */
+
+.post-card--featured {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: 5fr 6fr;
+  flex-direction: unset;
+  min-height: 380px;
+}
+
+.post-card--featured .post-card__img-wrap {
+  height: 100%;
+  min-height: 320px;
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+.post-card--featured .post-card__img {
+  height: 100%;
+  width: 100%;
+  aspect-ratio: unset;
+  object-fit: cover;
+}
+
+.post-card--featured .post-card__body {
+  padding: var(--space-8);
+  justify-content: center;
+  gap: var(--space-4);
+}
+
+.post-card--featured .post-card__title {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.post-card--featured .post-card__excerpt {
+  -webkit-line-clamp: 4;
+  font-size: var(--text-base);
+}
+
+/* Etiqueta FEATURED */
+.post-card--featured::before {
+  content: 'DESTACADO';
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: 0.1em;
+  color: var(--bg);
+  background: var(--gold);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  z-index: 1;
+}
+
+/* =============================================
+   POSTS GRID — Bento Grid layout
+============================================= */
+
+.posts-grid,
+.blog-list,
+.related__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--bento-gap);
+}
+
+/* =============================================
+   FILTER BAR — Pills de categoría
+============================================= */
+
+.filter-bar {
+  display: flex;
+  align-items: center;
+  padding: var(--space-5) 0;
+  gap: var(--space-2);
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.filter-bar::-webkit-scrollbar { display: none; }
+
+.filter-btn {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  letter-spacing: -0.01em;
+  color: var(--text-muted);
+  padding: 0.45rem 1rem;
+  border-radius: var(--radius);
+  white-space: nowrap;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.filter-btn:hover {
+  background: var(--surface-2);
+  border-color: var(--border-md);
+  color: var(--text);
+}
+
+.filter-btn.active {
+  background: var(--gold-dim);
+  border-color: var(--border-gold);
+  color: var(--gold);
+}
+
+/* =============================================
+   POSTS COUNT
+============================================= */
+
+.posts-count {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-4);
+}
+
+/* =============================================
+   STATS — Bento grid de métricas
+============================================= */
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--bento-gap);
+}
+
+.stat {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+  text-align: center;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Acento de fondo en stats */
+.stat::before {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(196, 156, 82, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.stat:hover {
+  background: var(--surface-2);
+  border-color: var(--border-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.stat__num {
+  font-family: var(--font-display);
+  font-size: 3.2rem;
+  font-weight: var(--font-extrabold);
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.04em;
+}
+
+.stat__label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-muted);
+  max-width: 22ch;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+/* =============================================
+   SKILL CARDS — About page Bento
+============================================= */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: var(--bento-gap);
+}
+
+.skill-card {
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+
+.skill-card::after {
+  content: '';
+  position: absolute;
+  top: -30px;
+  right: -30px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(196, 156, 82, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.skill-card:hover {
+  background: var(--surface-2);
+  border-color: var(--border-gold);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+}
+
+.skill-card__icon {
+  font-size: 1.3rem;
+  color: var(--gold);
+  margin-bottom: var(--space-4);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--gold-dim);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-gold);
+}
+
+.skill-card__name {
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-2);
+}
+
+.skill-card__desc {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* =============================================
+   TIMELINE — About page
+============================================= */
+
+.timeline__list {
+  list-style: none;
+  position: relative;
+  padding-left: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.timeline__list::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--gold), var(--border));
+}
+
+.timeline__item {
+  position: relative;
+  padding: var(--space-5) var(--space-6);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-1);
+  margin-bottom: var(--bento-gap);
+  transition: all var(--transition);
+}
+
+.timeline__item:last-child { margin-bottom: 0; }
+
+.timeline__item:hover {
+  background: var(--surface-2);
+  border-color: var(--border-gold);
+  transform: translateX(4px);
+}
+
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-8) + 3px);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--gold);
+  border-radius: 50%;
+  background: var(--bg);
+}
+
+.timeline__year {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--gold);
+  margin-bottom: var(--space-1);
+  letter-spacing: 0.06em;
+}
+
+.timeline__role {
+  font-size: var(--text-base);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-1);
+}
+
+.timeline__company {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+/* =============================================
+   CONTACT METHODS
+============================================= */
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.contact-method {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  padding: var(--space-4) var(--space-5);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface-1);
+  transition: all var(--transition);
+}
+
+.contact-method:hover {
+  background: var(--surface-2);
+  border-color: var(--border-gold);
+  transform: translateX(4px);
+}
+
+.contact-method__icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--gold-dim);
+  color: var(--gold);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-gold);
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.contact-method__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+
+.contact-method__val {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text);
+}
+
+/* =============================================
+   FORM — Formulario de contacto (Bento)
+============================================= */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.form-label {
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.form-label span { color: var(--gold); margin-left: 2px; }
+
+.form-input,
+.form-select,
+.form-textarea {
+  background: var(--surface-2);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  padding: 0.85rem 1rem;
+  transition: border-color var(--transition), background var(--transition), box-shadow var(--transition);
+  width: 100%;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--gold);
+  background: var(--surface-3);
+  box-shadow: 0 0 0 3px var(--gold-dim);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder { color: var(--text-dim); }
+
+.form-input.error,
+.form-select.error,
+.form-textarea.error {
+  border-color: #c45252;
+  box-shadow: 0 0 0 3px rgba(196, 82, 82, 0.1);
+}
+
+.form-error {
+  font-size: var(--text-xs);
+  color: #e07070;
+  display: none;
+}
+
+.form-error.visible { display: block; }
+
+.form-textarea {
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c49c52' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+
+.form-select option { background: var(--surface-3); color: var(--text); }
+
+.form-submit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  padding-top: var(--space-2);
+}
+
+.form-note {
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.form-note i { color: #25d366; font-size: 1rem; }
+
+/* Estado de exito */
+.form-success {
+  display: none;
+  padding: var(--space-10);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  background: var(--gold-glow);
+  text-align: center;
+  animation: scaleIn 0.3s var(--ease-out);
+}
+
+.form-success.visible { display: block; }
+
+.form-success__icon {
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: var(--space-4);
+}
+
+.form-success__title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-2);
+}
+
+.form-success__sub {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+.form-success__sub a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+
+/* =============================================
+   FEATURED STRIP — Category pills home
+============================================= */
+
+.featured-strip {
+  padding: var(--space-5) 0;
+}
+
+.featured-strip__inner {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-6);
+}
+
+.featured-strip__inner::-webkit-scrollbar { display: none; }
+
+.featured-strip__label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.featured-strip__tags {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: nowrap;
+}
+
+.featured-strip__tag {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--text-muted);
+  padding: 0.3rem 0.85rem;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all var(--transition);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.featured-strip__tag:hover {
+  background: var(--gold-dim);
+  border-color: var(--border-gold);
+  color: var(--gold);
+}
+
+/* =============================================
+   RESPONSIVE — Componentes
+============================================= */
+
+@media (max-width: 900px) {
+  .post-card--featured {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .post-card--featured .post-card__img-wrap {
+    min-height: 220px;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .post-card--featured .post-card__body {
+    padding: var(--space-6);
+  }
+
+  .post-card--featured .post-card__title {
+    font-size: 1.35rem;
+  }
+
+  .stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .stats .stat:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 640px) {
+  .posts-grid,
+  .blog-list,
+  .related__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .post-card--featured { grid-column: auto; }
+  .post-card--featured::before { display: none; }
+
+  .form-row { grid-template-columns: 1fr; }
+
+  .skills-grid { grid-template-columns: 1fr 1fr; }
+
+  .stats { grid-template-columns: 1fr; }
+  .stats .stat:last-child { grid-column: auto; }
+}
+
+@media (max-width: 400px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}

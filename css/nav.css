@@ -1,0 +1,221 @@
+/* =============================================
+   GATO NEGRO — Navegacion (Bento)
+   Nav flotante con forma de pill / cápsula
+============================================= */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  /* Padding para la pill flotante */
+  padding: 12px var(--space-6);
+  display: flex;
+  align-items: center;
+}
+
+/* La pill flotante interior */
+.nav__pill {
+  width: 100%;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  background: rgba(20, 20, 23, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--border-md);
+  border-radius: var(--radius-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.nav.scrolled .nav__pill {
+  border-color: var(--border-gold);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(196, 156, 82, 0.08);
+}
+
+/* --- Logo --- */
+.nav__logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity var(--transition);
+}
+
+.nav__logo:hover { opacity: 0.8; }
+
+/* Logo container for scroll swap */
+.nav__logo-img {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo {
+  display: block;
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.logo--default {
+  width: 36px;
+  margin: 12px 0;
+}
+
+.logo--scroll {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 36px;
+  margin: 0;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.6);
+}
+
+.nav.scrolled .logo--default {
+  opacity: 0;
+  transform: scale(0.6);
+}
+
+.nav.scrolled .logo--scroll {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.nav__logo-mark {
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
+}
+
+.nav__logo-mark svg { width: 100%; height: 100%; }
+
+.nav__logo-text {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: var(--font-bold);
+  letter-spacing: -0.03em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.nav__logo-text span { color: var(--gold); }
+
+/* --- Links desktop --- */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  list-style: none;
+}
+
+.nav__link {
+  font-family: var(--font-ui);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  letter-spacing: -0.01em;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.nav__link:hover {
+  color: var(--text);
+  background: var(--surface-3);
+}
+
+.nav__link.active {
+  color: var(--gold);
+  background: var(--gold-dim);
+}
+
+/* --- CTA en nav --- */
+.nav__cta {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+/* --- Toggle mobile --- */
+.nav__toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: var(--space-1);
+  width: 32px;
+  height: 32px;
+}
+
+.nav__toggle span {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--text-muted);
+  border-radius: 2px;
+  transition: all var(--transition);
+  transform-origin: center;
+}
+
+.nav__toggle.open span:nth-child(1) { transform: translateY(5.5px) rotate(45deg); background: var(--gold); }
+.nav__toggle.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav__toggle.open span:nth-child(3) { transform: translateY(-5.5px) rotate(-45deg); background: var(--gold); }
+
+/* --- Menu mobile --- */
+.nav__mobile {
+  display: none;
+  position: fixed;
+  top: calc(var(--nav-h) + 4px);
+  left: var(--space-6);
+  right: var(--space-6);
+  background: rgba(20, 20, 23, 0.97);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  border: 1px solid var(--border-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  z-index: 999;
+  animation: scaleIn 0.2s var(--ease-out);
+  transform-origin: top center;
+}
+
+.nav__mobile.open { display: block; }
+
+.nav__mobile-list { list-style: none; }
+
+.nav__mobile-item {
+  display: block;
+  font-size: var(--text-base);
+  font-weight: var(--font-medium);
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+
+.nav__mobile-item:hover,
+.nav__mobile-item.active {
+  color: var(--gold);
+  background: var(--gold-dim);
+}
+
+/* =============================================
+   RESPONSIVE
+============================================= */
+
+@media (max-width: 640px) {
+  .nav { padding: 10px var(--space-4); }
+  .nav__links { display: none; }
+  .nav__toggle { display: flex; }
+  .nav__pill { padding: 0 var(--space-4); }
+  .nav__mobile { left: var(--space-4); right: var(--space-4); }
+}

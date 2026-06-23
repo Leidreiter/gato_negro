@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto &mdash; Gato Negro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav__pill">
+      <a class="nav__logo" href="index.html">
+        <div class="nav__logo-img">
+          <img src="img/logo.svg" alt="Gato Negro" class="logo logo--default">
+          <img src="img/favicon.svg" alt="" class="logo logo--scroll" aria-hidden="true">
+        </div>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a class="nav__link" href="index.html" data-page="home">Inicio</a></li>
+        <li><a class="nav__link active" href="blog.html" data-page="blog">Blog</a></li>
+        <li><a class="nav__link" href="about.html" data-page="about">Autor</a></li>
+        <li><a class="nav__link" href="contact.html" data-page="contact">Contacto</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile">
+    <ul class="nav__mobile-list">
+      <li><a class="nav__mobile-item" href="index.html" data-page="home">Inicio</a></li>
+      <li><a class="nav__mobile-item active" href="blog.html" data-page="blog">Blog</a></li>
+      <li><a class="nav__mobile-item" href="about.html" data-page="about">Sobre el Autor</a></li>
+      <li><a class="nav__mobile-item" href="contact.html" data-page="contact">Contacto</a></li>
+    </ul>
+  </div>
+  
+  <main>
+    <div class="contact-hero">
+      <div class="container">
+        <div class="contact-hero__cell">
+          <div class="blog-hero__tag">Contacto</div>
+          <h1 class="blog-hero__title">Hablemos</h1>
+          <p class="blog-hero__sub">Colaboraciones, consultas, feedback o simplemente saludar. Uso WhatsApp para responder más rápido.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="contact-layout">
+        <aside>
+          <div class="contact-info__cell">
+            <div class="contact-info__label">Canales</div>
+            <h2 class="contact-info__title">Siempre disponible para una buena conversación</h2>
+            <p class="contact-info__text">El formulario envia el mensaje directo a WhatsApp. Sin bots, sin delays.</p>
+            <div class="contact-methods">
+              <div class="contact-method"><div class="contact-method__icon"><i class="fa-brands fa-whatsapp"></i></div><div><div class="contact-method__label">WhatsApp</div><div class="contact-method__val">+54 351 595-7014</div></div></div>
+              <div class="contact-method"><div class="contact-method__icon"><i class="fa-solid fa-envelope"></i></div><div><div class="contact-method__label">Email</div><div class="contact-method__val">hola@gatonegro.design</div></div></div>
+              <div class="contact-method"><div class="contact-method__icon"><i class="fa-brands fa-x-twitter"></i></div><div><div class="contact-method__label">Twitter / X</div><div class="contact-method__val">@gatonegro_ux</div></div></div>
+            </div>
+          </div>
+        </aside>
+        <div>
+          <div class="contact-form__cell">
+            <form class="contact-form" id="contactForm" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label" for="fname">Nombre <span>*</span></label>
+                  <input class="form-input" type="text" id="fname" name="fname" placeholder="Tu nombre" autocomplete="given-name" required />
+                  <span class="form-error" id="err-fname" role="alert">Por favor ingresa tu nombre.</span>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="femail">Email <span>*</span></label>
+                  <input class="form-input" type="email" id="femail" name="femail" placeholder="tu@email.com" autocomplete="email" required />
+                  <span class="form-error" id="err-femail" role="alert">Ingresa un email valido.</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="freason">Por que deseas contactarte <span>*</span></label>
+                <select class="form-select" id="freason" name="freason" required>
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="Consulta sobre UX/UI">Consulta sobre UX/UI</option>
+                  <option value="Propuesta de colaboración">Propuesta de colaboración</option>
+                  <option value="Solicitar una consultoria">Solicitar una consultoria</option>
+                  <option value="Sugerir un tema para el blog">Sugerir un tema para el blog</option>
+                  <option value="Otro motivo">Otro motivo</option>
+                </select>
+                <span class="form-error" id="err-freason" role="alert">Por favor selecciona un motivo.</span>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="fmsg">Mensaje <span>*</span></label>
+                <textarea class="form-textarea" id="fmsg" name="fmsg" placeholder="Describe tu consulta..." required></textarea>
+                <span class="form-error" id="err-fmsg" role="alert">El mensaje debe tener al menos 10 caracteres.</span>
+              </div>
+              <div class="form-submit">
+                <div class="form-note"><i class="fa-brands fa-whatsapp"></i><span>El mensaje se enviara via WhatsApp</span></div>
+                <button type="submit" class="btn btn--primary"><i class="fa-brands fa-whatsapp"></i> Enviar por WhatsApp</button>
+              </div>
+            </form>
+            <div class="form-success" id="formSuccess" role="status">
+              <div class="form-success__icon"><i class="fa-solid fa-circle-check"></i></div>
+              <div class="form-success__title">Redirigiendo a WhatsApp</div>
+              <p class="form-success__sub">Se abrió WhatsApp con tu mensaje. Si no abrió automáticamente, <a href="#" id="waFallback">haz clic aquí</a>.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container"><div class="footer__inner">
+      <div class="footer__bottom"><span class="footer__copy">&copy; 2025 Gato Negro</span></div>
+    </div></div>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
+</body></html>

@@ -1,0 +1,99 @@
+/* =============================================
+   GATO NEGRO — Design Tokens & Variables
+   Rediseño estética Bento Grid.
+   Tipografía: Plus Jakarta Sans + Space Grotesk + JetBrains Mono
+============================================= */
+
+:root {
+
+  /* --- Superficie Bento (capas de profundidad) --- */
+  --bg:           #0c0c0e;        /* fondo raiz */
+  --surface-0:    #0c0c0e;        /* igual al bg */
+  --surface-1:    #141417;        /* celda base */
+  --surface-2:    #1a1a1f;        /* celda elevada */
+  --surface-3:    #212128;        /* hover / hover celda */
+  --surface-4:    #2a2a34;        /* elemento interactivo */
+
+  /* --- Bordes Bento --- */
+  --border:       rgba(255, 255, 255, 0.07);
+  --border-md:    rgba(255, 255, 255, 0.11);
+  --border-gold:  rgba(196, 156, 82, 0.30);
+
+  /* --- Acento dorado --- */
+  --gold:         #c49c52;
+  --gold-light:   #dbb96e;
+  --gold-dim:     rgba(196, 156, 82, 0.12);
+  --gold-glow:    rgba(196, 156, 82, 0.06);
+  --gold-bright:  #e8c270;
+
+  /* --- Texto --- */
+  --text:         #ededf0;
+  --text-muted:   #76767f;
+  --text-dim:     #3f3f4a;
+
+  /* --- Tipografía Bento ---
+       Display:  Plus Jakarta Sans — moderna, geométrica, limpia
+       UI:       Space Grotesk    — técnica, clara, groteska
+       Mono:     JetBrains Mono   — developer-friendly
+  --- */
+  --font-display: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-ui:      'Space Grotesk', system-ui, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Code', monospace;
+
+  /* --- Escala tipografica --- */
+  --text-2xs:   0.625rem;    /* 10px */
+  --text-xs:    0.6875rem;   /* 11px */
+  --text-sm:    0.75rem;     /* 12px */
+  --text-base:  1rem;        /* 16px */
+  --text-lg:    1.125rem;    /* 18px */
+  --text-xl:    1.25rem;     /* 20px */
+  --text-2xl:   1.5rem;      /* 24px */
+  --text-3xl:   1.875rem;    /* 30px */
+  --text-4xl:   2.25rem;     /* 36px */
+  --text-5xl:   3rem;        /* 48px */
+
+  /* --- Pesos --- */
+  --font-light:     300;
+  --font-regular:   400;
+  --font-medium:    500;
+  --font-semibold:  600;
+  --font-bold:      700;
+  --font-extrabold: 800;
+
+  /* --- Espaciados --- */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+
+  /* --- Bento: radios grandes y consistentes --- */
+  --radius-sm:  8px;
+  --radius:     16px;
+  --radius-lg:  24px;
+  --radius-xl:  32px;
+
+  /* --- Gap interno de la grilla Bento --- */
+  --bento-gap:  12px;
+
+  /* --- Transiciones --- */
+  --transition:      0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: 0.12s cubic-bezier(0.4, 0, 0.2, 1);
+
+  --ease-out:    cubic-bezier(0.0, 0.0, 0.2, 1);
+  --ease-in:     cubic-bezier(0.4, 0.0, 1, 1);
+  --ease-in-out: cubic-bezier(0.4, 0.0, 0.2, 1);
+
+  /* --- Layout --- */
+  --nav-h:     68px;
+  --max-w:     1400px;
+  --content-w: 720px;
+}

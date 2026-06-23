@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gato Negro &mdash; UX/UI & Diseño para Developers</title>
+  <meta name="description" content="Blog sobre UX/UI, buenas prácticas de diseño, recursos y tendencias para programadores y desarrolladores web." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__pill">
+      <a class="nav__logo" href="index.html">
+        <div class="nav__logo-img">
+          <img src="img/logo.svg" alt="Gato Negro" class="logo logo--default">
+          <img src="img/favicon.svg" alt="" class="logo logo--scroll" aria-hidden="true">
+        </div>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a class="nav__link" href="index.html" data-page="home">Inicio</a></li>
+        <li><a class="nav__link" href="blog.html" data-page="blog">Blog</a></li>
+        <li><a class="nav__link" href="about.html" data-page="about">Autor</a></li>
+        <li><a class="nav__link" href="contact.html" data-page="contact">Contacto</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile">
+    <ul class="nav__mobile-list">
+      <li><a class="nav__mobile-item" href="index.html" data-page="home">Inicio</a></li>
+      <li><a class="nav__mobile-item" href="blog.html" data-page="blog">Blog</a></li>
+      <li><a class="nav__mobile-item" href="about.html" data-page="about">Sobre el Autor</a></li>
+      <li><a class="nav__mobile-item" href="contact.html" data-page="contact">Contacto</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <section class="hero" aria-labelledby="heroTitle">
+      <div class="container">
+        <div class="hero__cell">
+          <div class="hero__bg"></div>
+          <div class="hero__grid"></div>
+          <div class="hero__badge">
+            <div class="hero__badge-dot"></div>
+            <span class="hero__badge-text">UX/UI &mdash; Diseño &mdash; Dev</span>
+          </div>
+          <div class="hero__deco-num">GN</div>
+          <div class="hero__stats-row">
+            <div class="hero__stat-chip">
+              <div class="hero__stat-chip-num">5+</div>
+              <div class="hero__stat-chip-label">Artículos</div>
+            </div>
+            <div class="hero__stat-chip">
+              <div class="hero__stat-chip-num">8+</div>
+              <div class="hero__stat-chip-label">Años exp.</div>
+            </div>
+          </div>
+          <div class="hero__content">
+            <div class="hero__eyebrow">
+              <i class="fa-solid fa-pen-nib fa-xs"></i>
+              Blog de diseño para developers
+            </div>
+            <h1 class="hero__title" id="heroTitle">Diseño que <br>
+              <em>trasciende</em> el código</h1>
+            <p class="hero__sub">Recursos, buenas prácticas y perspectivas sobre UX/UI para developers que entienden que el diseño no es decoración &mdash; es arquitectura de experiencias.</p>
+            <div class="hero__actions">
+              <a href="blog.html" class="btn btn--primary"><i class="fa-solid fa-arrow-right"></i> Explorar el blog</a>
+              <a href="about.html" class="btn btn--ghost">Sobre el autor</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="featured-strip">
+      <div class="container">
+        <div class="featured-strip__inner">
+          <span class="featured-strip__label">Temas</span>
+          <div class="featured-strip__tags" id="homeTagStrip"></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" aria-labelledby="latestTitle">
+      <div class="container">
+        <header class="section__header">
+          <div class="section__eyebrow">Últimas entradas</div>
+          <h2 class="section__title" id="latestTitle">Lo más <em>reciente</em></h2>
+        </header>
+        <div class="posts-grid" id="homePosts" role="list"></div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="statsTitle">
+      <div class="container">
+        <header class="section__header">
+          <div class="section__eyebrow">Por que importa</div>
+          <h2 class="section__title" id="statsTitle">El diseño <em>en números</em></h2>
+        </header>
+        <div class="stats">
+          <div class="stat reveal"><div class="stat__num">88%</div><div class="stat__label">de usuarios no regresan tras una mala experiencia</div></div>
+          <div class="stat reveal reveal-delay-1"><div class="stat__num">200%</div><div class="stat__label">mayor conversion con UX bien ejecutado</div></div>
+          <div class="stat reveal reveal-delay-2"><div class="stat__num">0.05s</div><div class="stat__label">es cuanto tarda el usuario en formarse una opinion</div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      renderHomePosts();
+      renderHomeTagStrip();
+      renderFooterCategories();
+    });
+  </script>
+</body>
+</html>

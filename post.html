@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Articulo &mdash; Gato Negro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav__pill">
+      <a class="nav__logo" href="index.html">
+        <div class="nav__logo-img">
+          <img src="img/logo.svg" alt="Gato Negro" class="logo logo--default">
+          <img src="img/favicon.svg" alt="" class="logo logo--scroll" aria-hidden="true">
+        </div>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a class="nav__link" href="index.html" data-page="home">Inicio</a></li>
+        <li><a class="nav__link active" href="blog.html" data-page="blog">Blog</a></li>
+        <li><a class="nav__link" href="about.html" data-page="about">Autor</a></li>
+        <li><a class="nav__link" href="contact.html" data-page="contact">Contacto</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile">
+    <ul class="nav__mobile-list">
+      <li><a class="nav__mobile-item" href="index.html" data-page="home">Inicio</a></li>
+      <li><a class="nav__mobile-item active" href="blog.html" data-page="blog">Blog</a></li>
+      <li><a class="nav__mobile-item" href="about.html" data-page="about">Sobre el Autor</a></li>
+      <li><a class="nav__mobile-item" href="contact.html" data-page="contact">Contacto</a></li>
+    </ul>
+  </div>
+  <main>
+    <div class="post-header">
+      <div class="container">
+        <div class="post-header__cell">
+          <a class="post-header__back" href="blog.html"><i class="fa-solid fa-arrow-left"></i> Volver al blog</a>
+          <div class="post-header__meta" id="postMeta"></div>
+          <h1 class="post-header__title" id="postTitle"></h1>
+          <p class="post-header__excerpt" id="postExcerpt"></p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <img class="post-featured-img" id="postImg" src="" alt="" />
+      <div class="post-content">
+        <div class="post-content__cell">
+          <div class="content-wrap">
+            <div class="post-body" id="postBody"></div>
+            <div class="post-tags" id="postTags"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section class="related">
+      <div class="container">
+        <h2 class="related__title">Artículos <em>relacionados</em></h2>
+        <div class="related__grid" id="relatedPosts" role="list"></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container"><div class="footer__inner">
+      <div class="footer__bottom"><span class="footer__copy">&copy; 2025 Gato Negro</span><a href="blog.html" class="btn btn--ghost"><i class="fa-solid fa-arrow-left"></i> Ver todos los artículos</a></div>
+    </div></div>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/post.js"></script>
+</body></html>

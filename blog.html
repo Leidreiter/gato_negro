@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog &mdash; Gato Negro</title>
+  <meta name="description" content="Todos los artículos sobre UX/UI, diseño de interfaces y tendencias para developers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+</head>
+<body>
+
+  <nav class="nav" id="nav">
+    <div class="nav__pill">
+      <a class="nav__logo" href="index.html">
+        <div class="nav__logo-img">
+          <img src="img/logo.svg" alt="Gato Negro" class="logo logo--default">
+          <img src="img/favicon.svg" alt="" class="logo logo--scroll" aria-hidden="true">
+        </div>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a class="nav__link" href="index.html" data-page="home">Inicio</a></li>
+        <li><a class="nav__link active" href="blog.html" data-page="blog">Blog</a></li>
+        <li><a class="nav__link" href="about.html" data-page="about">Autor</a></li>
+        <li><a class="nav__link" href="contact.html" data-page="contact">Contacto</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile">
+    <ul class="nav__mobile-list">
+      <li><a class="nav__mobile-item" href="index.html" data-page="home">Inicio</a></li>
+      <li><a class="nav__mobile-item active" href="blog.html" data-page="blog">Blog</a></li>
+      <li><a class="nav__mobile-item" href="about.html" data-page="about">Sobre el Autor</a></li>
+      <li><a class="nav__mobile-item" href="contact.html" data-page="contact">Contacto</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <div class="blog-hero">
+      <div class="container">
+        <div class="blog-hero__cell">
+          <div class="blog-hero__tag">Archivo</div>
+          <h1 class="blog-hero__title">El <em>Blog</em></h1>
+          <p class="blog-hero__sub">Todos los artículos, ordenados por relevancia. Filtra por categoría o navega el archivo completo.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <nav class="filter-bar" id="filterBar" aria-label="Filtrar por categoría"></nav>
+      <div class="blog-grid">
+        <p class="posts-count" id="postsCount" aria-live="polite"></p>
+        <div class="blog-list" id="blogList" role="list"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__bottom">
+          <span class="footer__copy">&copy; 2025 Gato Negro</span>
+          <a href="contact.html" class="btn btn--ghost"><i class="fa-solid fa-envelope"></i> Contacto</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/blog.js"></script>
+</body>
+</html>

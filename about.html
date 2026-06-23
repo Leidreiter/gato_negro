@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sobre el Autor &mdash; Gato Negro</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/pages.css" />
+
+</head>
+<body>
+  <nav class="nav" id="nav">
+    <div class="nav__pill">
+      <a class="nav__logo" href="index.html">
+        <div class="nav__logo-img">
+          <img src="img/logo.svg" alt="Gato Negro" class="logo logo--default">
+          <img src="img/favicon.svg" alt="" class="logo logo--scroll" aria-hidden="true">
+        </div>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a class="nav__link" href="index.html" data-page="home">Inicio</a></li>
+        <li><a class="nav__link" href="blog.html" data-page="blog">Blog</a></li>
+        <li><a class="nav__link active" href="about.html" data-page="about">Autor</a></li>
+        <li><a class="nav__link" href="contact.html" data-page="contact">Contacto</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="navMobile">
+    <ul class="nav__mobile-list">
+      <li><a class="nav__mobile-item" href="index.html" data-page="home">Inicio</a></li>
+      <li><a class="nav__mobile-item active" href="blog.html" data-page="blog">Blog</a></li>
+      <li><a class="nav__mobile-item" href="about.html" data-page="about">Sobre el Autor</a></li>
+      <li><a class="nav__mobile-item" href="contact.html" data-page="contact">Contacto</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <div class="about-hero">
+      <div class="container">
+        <div class="about-bento">
+          <div class="about-bento__text">
+            <div class="about-hero__label">Sobre el autor</div>
+            <h1 class="about-hero__title">Diseño, código<br>y <em>obsesión</em><br>por los detalles</h1>
+            <p class="about-hero__bio">Soy diseñador UX/UI y desarrollador frontend con más de 8 años construyendo interfaces que equilibran estética y funcionalidad. Creo que el mejor código es el que el usuario nunca ve &mdash; solo siente.</p>
+            <p class="about-hero__bio">Gato Negro nació de la frustración de ver productos digitales bien construidos técnicamente pero completamente rotos en experiencia. Este blog es mi espacio para compartir lo que aprendí.</p>
+            <div class="social-links">
+              <a href="#" class="social-btn" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+              <a href="#" class="social-btn" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+              <a href="#" class="social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="social-btn" aria-label="Dribbble"><i class="fa-brands fa-dribbble"></i></a>
+            </div>
+          </div>
+          <div class="about-bento__photo">
+            <img class="about-hero__img" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&grayscale" alt="Foto del autor" loading="lazy" />
+          </div>
+          <div class="about-bento__meta">
+            <div class="about-mini-stats">
+              <div class="about-mini-stat"><div class="about-mini-stat__num">8+</div><div class="about-mini-stat__label">Años de experiencia</div></div>
+              <div class="about-mini-stat"><div class="about-mini-stat__num">60+</div><div class="about-mini-stat__label">Proyectos completados</div></div>
+            </div>
+            <a href="contact.html" class="btn btn--primary" style="width:100%;justify-content:center;">
+              <i class="fa-solid fa-arrow-right"></i> Trabajemos juntos
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="skills-section section" aria-labelledby="skillsTitle">
+      <div class="container">
+        <header class="section__header">
+          <div class="section__eyebrow">Especialidades</div>
+          <h2 class="section__title" id="skillsTitle">Area de <em>expertise</em></h2>
+        </header>
+        <div class="skills-grid">
+          <div class="skill-card reveal"><div class="skill-card__icon"><i class="fa-solid fa-layer-group"></i></div><div class="skill-card__name">UX Research</div><div class="skill-card__desc">Entrevistas, mapas de usuario, análisis de comportamiento y validación de hipótesis.</div></div>
+          <div class="skill-card reveal reveal-delay-1"><div class="skill-card__icon"><i class="fa-solid fa-pen-nib"></i></div><div class="skill-card__name">UI Design</div><div class="skill-card__desc">Sistemás de diseño, componentes, tipografia, color y consistencia visual.</div></div>
+          <div class="skill-card reveal reveal-delay-2"><div class="skill-card__icon"><i class="fa-solid fa-code"></i></div><div class="skill-card__name">Frontend Dev</div><div class="skill-card__desc">HTML semantico, CSS moderno, JavaScript vanilla y frameworks modernos.</div></div>
+          <div class="skill-card reveal"><div class="skill-card__icon"><i class="fa-solid fa-mobile-screen"></i></div><div class="skill-card__name">Responsive Design</div><div class="skill-card__desc">Mobile-first, accesibilidad, performance y experiencias adaptativas.</div></div>
+          <div class="skill-card reveal reveal-delay-1"><div class="skill-card__icon"><i class="fa-solid fa-chart-line"></i></div><div class="skill-card__name">Metricas & CRO</div><div class="skill-card__desc">A/B testing, análisis de funnels y optimizacion de conversion.</div></div>
+          <div class="skill-card reveal reveal-delay-2"><div class="skill-card__icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><div class="skill-card__name">Motion Design</div><div class="skill-card__desc">Micro-interacciones, animaciones CSS/JS y transiciones de estado.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="expTitle">
+      <div class="container">
+        <header class="section__header">
+          <div class="section__eyebrow">Trayectoria</div>
+          <h2 class="section__title" id="expTitle">Experiencia <em>profesional</em></h2>
+        </header>
+        <div class="content-wrap">
+          <ol class="timeline__list">
+            <li class="timeline__item"><div class="timeline__year">2022 &mdash; Presente</div><div class="timeline__role">Lead UX/UI Designer</div><div class="timeline__company">Estudio independiente &mdash; Proyectos internacionales</div></li>
+            <li class="timeline__item"><div class="timeline__year">2019 &mdash; 2022</div><div class="timeline__role">Senior Product Designer</div><div class="timeline__company">Agencia digital &mdash; LATAM</div></li>
+            <li class="timeline__item"><div class="timeline__year">2017 &mdash; 2019</div><div class="timeline__role">Frontend Developer & UX Designer</div><div class="timeline__company">Startup de fintech</div></li>
+            <li class="timeline__item"><div class="timeline__year">2015 &mdash; 2017</div><div class="timeline__role">Web Designer</div><div class="timeline__company">Agencia creativa</div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container"><div class="footer__inner">
+      <div class="footer__bottom"><span class="footer__copy">&copy; 2025 Gato Negro</span></div>
+    </div></div>
+  </footer>
+  <script src="js/data.js"></script>
+  <script src="js/render.js"></script>
+  <script src="js/main.js"></script>
+</body></html>
